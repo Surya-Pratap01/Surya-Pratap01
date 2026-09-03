@@ -1,0 +1,37 @@
+{
+  "title": "Engineering Radar",
+  "axes": [
+    {
+      "label": "C++",
+      "value": 72
+    },
+    {
+      "label": "Python",
+      "value": 68
+    },
+    {
+      "label": "TypeScript",
+      "value": 78
+    },
+    {
+      "label": "React/Next",
+      "value": 82
+    },
+    {
+      "label": "Backend/API",
+      "value": 75
+    },
+    {
+      "label": "Databases",
+      "value": 70
+    },
+    {
+      "label": "AI/LLM",
+      "value": 74
+    },
+    {
+      "label": "DSA",
+      "value": 68
+    }
+  ]
+}

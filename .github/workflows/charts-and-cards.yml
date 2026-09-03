@@ -1,0 +1,32 @@
+name: Refresh profile charts and cards
+on:
+  schedule:
+    - cron: "30 3 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  charts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate self-rated radar
+        run: python scripts/radar.py --data assets/skills.json -o assets/radar
+      - name: Generate repository-language radar
+        run: python scripts/radar.py --github Surya-Pratap01 -o assets/radar-langs
+      - name: Generate local stats and project cards
+        env:
+          GH_TOKEN: ${{ secrets.METRICS_TOKEN || github.token }}
+        run: python scripts/cards.py --user Surya-Pratap01 --out assets --token "$GH_TOKEN"
+      - name: Commit generated assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/
+          git diff --cached --quiet || git commit -m "chore: refresh profile charts and cards"
+          git push

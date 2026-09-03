@@ -1,0 +1,32 @@
+name: Refresh profile metrics
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate GitHub metrics
+        uses: lowlighter/metrics@latest
+        with:
+          filename: assets/metrics.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: header, activity, repositories
+          config_timezone: Asia/Kolkata
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          plugin_languages: yes
+          plugin_languages_ignored: html, css, shell, makefile, dockerfile
+          plugin_languages_limit: 6
+          plugin_languages_details: percentage, bytes-size
+          plugin_achievements: yes
+          plugin_achievements_display: compact
+          plugin_activity: yes
+          plugin_activity_limit: 5
+          output_action: commit
+          committer_message: "chore: refresh GitHub metrics"

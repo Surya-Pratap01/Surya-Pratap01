@@ -1,0 +1,20 @@
+{
+  "projects": [
+    {
+      "repo": "Campus-Eats",
+      "description": "AI-powered campus food discovery and review platform"
+    },
+    {
+      "repo": "Samadhan--Civic-Issue-Management-System",
+      "description": "Crowdsourced civic issue reporting and resolution platform"
+    },
+    {
+      "repo": "Nexus-AI",
+      "description": "AI-powered code generation and developer platform"
+    },
+    {
+      "repo": "TradeVision",
+      "description": "Market and trading intelligence project"
+    }
+  ]
+}
