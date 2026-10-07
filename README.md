@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/portrait.svg" width="280" alt="Surya Pratap Singh dot matrix portrait">
+<img src="Surya Professional Photo.png" width="280" alt="Surya Pratap Singh">
 
 # SURYA PRATAP SINGH
 
